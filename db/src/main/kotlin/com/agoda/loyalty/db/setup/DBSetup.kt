@@ -8,4 +8,4 @@ object DBSetup {
     fun dbSetup() = module {
         single<WhiteLabelDataRepo> { WhiteLabelDataRepoImpl() }
     }
-}
+} // Test

@@ -18,4 +18,4 @@ object WhiteLabelXSetup {
             modules(appModules)
         }
     }
-}
+} // Test
