@@ -10,4 +10,4 @@ class XSearchCustomerHandlerImpl(validator: SearchCustomerValidator) : SearchCus
         // Call Third Party Api and map it
         return SearchCustomerResponse("X", "Customer", 10)
     }
-}
+} // Test
