@@ -29,4 +29,4 @@ fun Routing.loyaltyRoutes(parentApp: KoinApplication) {
             }
         }
     }
-}
+} // TEST
