@@ -1,3 +1,5 @@
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+
 val ktor_version: String by project
 val kotlin_version: String by project
 val logback_version: String by project
@@ -22,6 +24,10 @@ repositories {
     mavenCentral()
 }
 
+tasks.test {
+    useJUnitPlatform()
+}
+
 dependencies {
     implementation(project(":core"))
     implementation(project(":db"))
@@ -40,4 +46,17 @@ dependencies {
     // SLF4J Logger
     implementation("io.insert-koin:koin-logger-slf4j")
     implementation("io.insert-koin:koin-core")
+}
+
+val changedModules = System.getenv("CHANGED_MODULES").split(",")
+tasks.test {
+    useJUnitPlatform {}
+    onlyIf {
+        changedModules.contains("src")
+    }
+    testLogging {
+        events("skipped", "failed", "passed")
+        showStackTraces = true
+        exceptionFormat = TestExceptionFormat.FULL
+    }
 }

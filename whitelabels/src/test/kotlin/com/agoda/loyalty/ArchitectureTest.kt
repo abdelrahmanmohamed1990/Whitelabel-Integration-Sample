@@ -8,7 +8,6 @@ import com.lemonappdev.konsist.api.verify.assertFalse
 import kotlin.test.Test
 
 class ArchitectureTest {
-
     @Test
     fun testingAppArchitecture() {
         Konsist
